@@ -1,0 +1,14 @@
+<section class="about-company">
+  <h2 class="about-name header">{{companyInfo.type}} {{companyInfo.name}}</h2>
+  <div class="about-ads-block">
+    <div class="about-ads" *ngFor="let ad of ads">
+      <img class="about-ads-image" src="{{ad.imagePath}}" alt="{{ad.productName}}" title="{{ad.productName}}">
+      <h3 class="sub-header">{{ad.productName}}</h3>
+      <div class="additional">{{ad.productPrice}}</div>
+    </div>
+  </div>
+  <p class="about-country">
+    {{showFull ? aboutCountry : aboutCountryShort}}
+  </p>
+  <div class="show-more-about-country clickable" (click)="showFull = !showFull">Показать всё</div>
+</section>

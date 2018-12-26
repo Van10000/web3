@@ -1,0 +1,93 @@
+@import '../app.component';
+
+.my-bank-payment-form
+{
+  width: fit-content;
+}
+
+.my-bank-payment-main
+{
+  display: grid;
+  grid-template:
+    "from from-input"
+    "BIK BIK-input"
+    "account-number account-number-input"
+    "for-what for-what-input"
+    "amount amount-input"
+            / auto 1fr;
+}
+
+.my-bank-payment-from-input
+{
+  grid-area: from-input;
+}
+
+.my-bank-payment-from
+{
+  grid-area: from;
+}
+
+.my-bank-payment-BIK-text
+{
+  grid-area: BIK;
+}
+
+.my-bank-payment-BIK-input
+{
+  grid-area: BIK-input;
+}
+
+.my-bank-payment-account-number-text
+{
+  grid-area: account-number;
+}
+
+.my-bank-payment-account-number-input
+{
+  grid-area: account-number-input;
+}
+
+.my-bank-payment-for-what-text
+{
+  grid-area: for-what;
+}
+
+.my-bank-payment-for-what-selection
+{
+  grid-area: for-what-input;
+}
+
+.my-bank-payment-amount-text
+{
+  grid-area: amount;
+}
+
+.my-bank-payment-amount-input
+{
+  grid-area: amount-input;
+}
+
+.my-bank-payment-from-input,
+.my-bank-payment-from-text,
+.my-bank-payment-BIK-text,
+.my-bank-payment-BIK-input,
+.my-bank-payment-account-number-text,
+.my-bank-payment-account-number-input,
+.my-bank-payment-for-what-text,
+.my-bank-payment-for-what-selection,
+.my-bank-payment-amount-text,
+.my-bank-payment-amount-input
+{
+  margin: 10px;
+}
+
+.my-bank-payment-for-what-input
+{
+  display: block;
+}
+
+.forWhatSelected
+{
+  cursor: default;
+  color: black;
+}

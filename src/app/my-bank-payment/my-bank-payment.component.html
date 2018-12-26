@@ -1,0 +1,31 @@
+<form [formGroup]="form" class="my-bank-payment-form">
+  <h3 class="sub-header">Сформируйте платёжку и загрузите её в свой банк для подписи</h3>
+  <div class="my-bank-payment-main">
+    <label for="my-bank-payment-from" class="my-bank-payment-from-text additional">От кого</label>
+    <input class="my-bank-payment-from-input" formControlName="payment-from" type="text"
+           (keypress)="formatFrom($event)" id="my-bank-payment-from" placeholder="ИНН или название плательщика">
+    <label for="my-bank-payment-BIK" class="my-bank-payment-BIK-text additional">БИК</label>
+    <input class="my-bank-payment-BIK-input" id="my-bank-payment-BIK" formControlName="payment-BIK"
+           (keypress)="formatBIK($event)" type="text">
+    <label for="my-bank-payment-account-number" class="my-bank-payment-account-number-text additional">Номер счёта</label>
+    <input class="my-bank-payment-account-number-input" formControlName="account-number" type="text"
+           (keypress)="formatAccountNumber($event)" id="my-bank-payment-account-number">
+    <div class="my-bank-payment-for-what-text additional">За что</div>
+    <div class="my-bank-payment-for-what-selection">
+      <label for="my-bank-payment-for-what" class="additional small-size">Назначение платежа</label>
+      <input class="my-bank-payment-for-what-input" formControlName="payment-for-what" type="text"
+             id="my-bank-payment-for-what" [ngModel]="forWhatSelected !== -1 ? forWhatOptions[forWhatSelected] : ''" disabled>
+      <span *ngFor="let forWhat of forWhatOptions; let i = index;"
+            class="my-bank-payment-for-what-{{i}} clickable"
+            [ngClass]="{forWhatSelected: forWhatSelected===i}"
+            (click)="forWhatSelected=i">
+        {{forWhat}}
+      </span>
+    </div>
+    <label for="my-bank-payment-amount" class="my-bank-payment-amount-text additional">Сколько</label>
+    <input class="my-bank-payment-amount-input" formControlName="payment-amount" type="number"
+           (keypress)="formatAmount($event)" id="my-bank-payment-amount" placeholder="От 1000 до 75000">
+  </div>
+  <button type="submit" class="my-bank-payment-submit" [disabled]="!form.valid">Получить файл для интернет-банка</button>
+  <button type="reset" (click)="forWhatSelected=-1" class="my-bank-payment-reset">Очистить форму</button>
+</form>

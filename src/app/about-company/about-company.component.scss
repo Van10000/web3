@@ -1,0 +1,50 @@
+@import '../app.component';
+
+.about-name::before
+{
+  content: "О компании ";
+}
+
+.about-ads-block
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-ads
+{
+  margin-right: 20px;
+  margin-bottom: 10px;
+  width: 250px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #aaa;
+  transition: .3s;
+}
+
+.about-ads *
+{
+  margin-left: 15px;
+}
+
+.about-ads:hover
+{
+  background-color: #ffefef;
+}
+
+.about-ads-image
+{
+  max-width: 100%;
+  height: auto;
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+.about-country
+{
+  display: inline-block;
+  width: $text-width;
+  max-width: 90%;
+  overflow: hidden;
+}

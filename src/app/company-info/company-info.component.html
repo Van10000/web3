@@ -1,0 +1,28 @@
+<section class="company-info">
+  <div class="company-text-info">
+    <h2 class="company-name header">{{companyInfo.type}} {{companyInfo.name}}</h2>
+    <p class="company-contacts">
+      <span class="company-phone additional">{{companyInfo.phone}}</span>
+      <span class="company-website clickable">{{companyInfo.website}}</span>
+      <span class="company-email clickable">{{companyInfo.email}}</span>
+    </p>
+    <div class="show-company-about clickable" (click)="showAbout = !showAbout">
+      Информация о компании
+    </div>
+    <div class="company-about" *ngIf="showAbout">
+      {{companyInfo.about}}
+    </div>
+    <div class="show-company-requisites clickable" (click)="showRequisites = !showRequisites">
+      Показать реквизиты
+    </div>
+    <table class="company-requisites" *ngIf="showRequisites">
+      <tr class="company-requisite-line" *ngFor="let requisite of companyInfo.requisites.entries()">
+        <td class="company-requisite-name">{{requisite[0]}}</td>
+        <td class="company-requisite-value">{{requisite[1]}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="company-image-area">
+    <img class="company-image" src="../assets/images/company-image.png"  title="Эмблема компании" alt="Эмблема компании">
+  </div>
+</section>

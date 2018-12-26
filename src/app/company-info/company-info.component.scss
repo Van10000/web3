@@ -1,0 +1,66 @@
+@import '../app.component';
+
+.company-info
+{
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 6px 5px -5px grey;
+}
+
+.company-contacts
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.company-contacts *
+{
+  margin-right: 10px;
+}
+
+.company-about
+{
+  width: $text-width;
+}
+
+.show-company-about,
+.show-company-requisites
+{
+  margin-top: 10px;
+}
+
+.company-image
+{
+  width: 400px;
+  max-width: 100%;
+}
+
+.company-requisites
+{
+  margin-bottom: 20px;
+}
+
+.company-requisite-line
+{
+  padding-top: 20px;
+}
+
+.company-requisite-name
+{
+  font-weight: bold;
+  padding-right: 20px;
+}
+
+.company-requisite-name:after
+{
+  content: ':';
+}
+
+@media screen and (max-width: 768px)
+{
+  .company-info
+  {
+    flex-direction: column;
+  }
+}

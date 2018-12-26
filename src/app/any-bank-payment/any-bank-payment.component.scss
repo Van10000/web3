@@ -1,0 +1,112 @@
+@import '../app.component';
+
+.any-bank-payment-form
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Card */
+.card
+{
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 20px;
+  width: 330px;
+  height: 160px;
+  background-color: #fafafa;
+  box-shadow: 1px 2px 10px -2px grey;
+}
+
+.card-payment-systems
+{
+  text-align: right;
+}
+
+.card-payment-systems img
+{
+  display: inline;
+  height: 20px;
+}
+
+.card-number
+{
+  margin-top: 40px;
+}
+
+.card-number input
+{
+  width: 90%;
+}
+
+.card-additional-info
+{
+  margin-top: 30px;
+}
+
+.card-additional-info input
+{
+  width: 20%;
+  margin-right: 23%;
+}
+
+/* Payment details */
+
+.payment-details
+{
+  margin-left: 20px;
+  margin-top: 10px;
+  display: grid;
+  grid-template:
+    "amount amount-input"
+    "comment comment-input"
+    "email email-input"
+    "button empty"
+            / auto 1fr;
+}
+
+.any-bank-payment-amount-text
+{
+  grid-area: amount;
+}
+
+.any-bank-payment-amount-input
+{
+  grid-area: amount-input;
+}
+
+.any-bank-payment-comment-text
+{
+  grid-area: comment;
+}
+
+.any-bank-payment-comment-input
+{
+  grid-area: comment-input;
+}
+
+.any-bank-payment-email-text
+{
+  grid-area: email;
+}
+
+.any-bank-payment-email-input
+{
+  grid-area: email-input;
+}
+
+.any-bank-payment-amount-text,
+.any-bank-payment-comment-text,
+.any-bank-payment-email-text,
+.any-bank-payment-amount-input,
+.any-bank-payment-comment-input,
+.any-bank-payment-email-input,
+.any-bank-payment-submit
+{
+  margin: 10px;
+}
+
+.any-bank-payment-submit
+{
+  grid-area: button;
+}

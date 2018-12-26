@@ -1,0 +1,47 @@
+@import '../app.component';
+
+.payment-area
+{
+  margin-top: 40px;
+  padding-bottom: 40px;
+  box-shadow: 0 6px 5px -5px grey;
+}
+
+.operation-types,
+.payment-types
+{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.operation-payment,
+.operation-require-payment
+{
+  margin-right: 20px;
+}
+
+.payment-types
+{
+  margin-top: 30px;
+}
+
+.payment-any-bank,
+.payment-my-bank
+{
+  padding: 5px 10px;
+  margin-right: 10px;
+}
+
+.selected
+{
+  cursor: default;
+  color: black !important;
+}
+
+.selectedBank
+{
+  cursor: default;
+  color: black !important;
+  background-color: #eee;
+  border-radius: 3px;
+}

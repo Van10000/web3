@@ -1,0 +1,111 @@
+$text-width: 600px;
+
+.clickable
+{
+  cursor: pointer;
+  color: #0870cc;
+}
+
+body
+{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.additional
+{
+  color: #aaa;
+}
+
+.small-size
+{
+  font-size: 8px;
+}
+
+.hidden-input
+{
+  display: none;
+}
+
+.header
+{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.sub-header
+{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"]
+{
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid grey;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+input[type="text"].ng-valid,
+input[type="number"].ng-valid,
+input[type="email"].ng-valid
+{
+  border-bottom: 1px solid #b0eeaa;
+}
+
+input[type="text"].ng-invalid.ng-touched,
+input[type="number"].ng-invalid.ng-touched,
+input[type="email"].ng-invalid.ng-touched
+{
+  border-bottom: 1px solid #eeb0a7;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button
+{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+}
+
+button[disabled]
+{
+  opacity: 0.5;
+  cursor: default !important;
+}
+
+button[type="submit"]
+{
+  display: block;
+  border: 1px solid #ddd;
+  color: grey;
+  outline: none;
+  padding: 10px;
+  cursor: pointer;
+  background: linear-gradient(to top right, rgb(255, 213, 242), rgb(210, 248, 255));
+}
+
+button[type="reset"]
+{
+  display: block;
+  background-color: transparent;
+  padding: 10px;
+  color: #0870cc;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.social-image
+{
+  height: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
