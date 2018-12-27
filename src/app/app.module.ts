@@ -11,11 +11,14 @@ import { MyBankPaymentComponent } from './my-bank-payment/my-bank-payment.compon
 import { RequirePaymentComponent } from './require-payment/require-payment.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {Routes, RouterModule} from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
+import { MainComponent } from './main/main.component';
+import { AdminCardPaymentComponent } from './admin-card-payment/admin-card-payment.component';
+import { AdminRequestPaymentComponent } from './admin-request-payment/admin-request-payment.component';
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent},
+  { path: '', component: MainComponent},
   { path: 'admin', component: AdminComponent},
 ];
 
@@ -28,14 +31,18 @@ const appRoutes: Routes = [
     AnyBankPaymentComponent,
     MyBankPaymentComponent,
     RequirePaymentComponent,
-    AdminComponent
+    AdminComponent,
+    MainComponent,
+    AdminCardPaymentComponent,
+    AdminRequestPaymentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

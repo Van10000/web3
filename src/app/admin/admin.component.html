@@ -1,3 +1,22 @@
-<p>
-  admin works!
-</p>
+<div *ngIf="!isAuthenticated()" class="admin-login-page">
+  <div class="admin-login-form-wrapper">
+    <form [formGroup]="loginForm" class="admin-login-form" (ngSubmit)="submitLogin()">
+      <label class="admin-login-text" for="admin-login">Логин</label>
+      <input class="admin-login-input" type="text" id="admin-login"
+             (keypress)="formatLogin($event)" formControlName="login">
+      <label class="admin-password-text" for="admin-password">Пароль</label>
+      <input class="admin-password-input" type="password" id="admin-password"
+             (keypress)="formatPassword($event)" formControlName="password">
+      <button class="admin-login-button" type="submit">Войти</button>
+    </form>
+    <div class="admin-authentication-failed" *ngIf="this.authenticationFailed">Неверный логин или пароль!</div>
+  </div>
+</div>
+<div class="payment-info" *ngIf="isAuthenticated()">
+  <div class="payment-info-options">
+    <h2 class="show-card-payment" [ngClass]="{clickable: !showCard}" (click)="showCard = true">Платежи по картам</h2>
+    <h2 class="show-requested-payment" [ngClass]="{clickable: showCard}" (click)="showCard = false">Запрошенные платежи</h2>
+  </div>
+  <app-admin-card-payment *ngIf="showCard"></app-admin-card-payment>
+  <app-admin-request-payment *ngIf="!showCard"></app-admin-request-payment>
+</div>

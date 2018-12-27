@@ -87,7 +87,7 @@ export class AnyBankPaymentComponent implements OnInit {
   }
 
   submit() {
-    console.log('start submit');
+    console.log('start submitLogin');
     this.http.post(environment.backend + 'card-payment', JSON.stringify(this.form.value))
       .subscribe(ok => console.log('ok'), error => console.log('error'));
     console.log('submitted');

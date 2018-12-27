@@ -1,15 +1,15 @@
 $text-width: 600px;
 
-.clickable
-{
-  cursor: pointer;
-  color: #0870cc;
-}
-
 body
 {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.clickable
+{
+  cursor: pointer;
+  color: #0870cc;
 }
 
 .additional
@@ -41,7 +41,8 @@ body
 
 input[type="text"],
 input[type="number"],
-input[type="email"]
+input[type="email"],
+input[type="password"]
 {
   background-color: transparent;
   border: 0;
@@ -88,6 +89,7 @@ button[type="submit"]
   padding: 10px;
   cursor: pointer;
   background: linear-gradient(to top right, rgb(255, 213, 242), rgb(210, 248, 255));
+  border-radius: 5px;
 }
 
 button[type="reset"]
@@ -99,13 +101,5 @@ button[type="reset"]
   cursor: pointer;
   border: none;
   outline: none;
-}
-
-.social-image
-{
-  height: 20px;
-  border-radius: 3px;
-  cursor: pointer;
-  margin-right: 5px;
 }
 

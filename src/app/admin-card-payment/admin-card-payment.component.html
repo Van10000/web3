@@ -1,0 +1,46 @@
+<form [formGroup]="form" (ngSubmit)="loadData()">
+  <table>
+    <tr>
+      <td>
+        <label for="sort_field">Поле для сортировки</label>
+      </td>
+      <td>
+        <input id="sort_field" type="text" formControlName="sort_field">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="sort_desc">Сортировать по убыванию</label>
+      </td>
+      <td>
+        <input id="sort_desc" type="checkbox" formControlName="sort_desc">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="filter_field">Поле для фильтрации</label>
+      </td>
+      <td>
+        <input id="filter_field" type="text" formControlName="filter_field">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="filter_value">Значение для фильтрации</label>
+      </td>
+      <td>
+        <input id="filter_value" type="text" formControlName="filter_value">
+      </td>
+    </tr>
+  </table>
+  <button type="submit">Составить список</button>
+</form>
+<table class="card-payment-data">
+  <tr>
+    <td *ngFor="let field of paymentFields">{{field}}</td>
+  </tr>
+  <tr *ngFor="let payment of payments">
+    <td *ngFor="let field of paymentFields">{{payment[field]}}</td>
+    <td><button (click)="changeNotSafe(payment.id, 1 - payment['not_safe'])">{{payment['not_safe']=== 0 ? 'Пометить небезопасным' : 'Пометить безопасным'}}</button></td>
+  </tr>
+</table>
