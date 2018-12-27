@@ -1,4 +1,4 @@
-<form [formGroup]="form" class="my-bank-payment-form">
+<form [formGroup]="form" (ngSubmit)="submit()" class="my-bank-payment-form">
   <h3 class="sub-header">Сформируйте платёжку и загрузите её в свой банк для подписи</h3>
   <div class="my-bank-payment-main">
     <label for="my-bank-payment-from" class="my-bank-payment-from-text additional">От кого</label>
@@ -28,4 +28,5 @@
   </div>
   <button type="submit" class="my-bank-payment-submit" [disabled]="!form.valid">Получить файл для интернет-банка</button>
   <button type="reset" (click)="forWhatSelected=-1" class="my-bank-payment-reset">Очистить форму</button>
+  <div *ngIf="submitted" class="submitted-message">Отправлено</div>
 </form>

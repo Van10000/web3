@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { inRange, formatNumeric } from '../../model/helpers';
+import {inRange, formatNumeric, formatText} from '../../model/helpers';
 import { environment } from '../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,14 +8,16 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-any-bank-payment',
   templateUrl: './any-bank-payment.component.html',
   styleUrls: ['./any-bank-payment.component.scss'],
-  providers: [HttpClient]
+  providers: [FormBuilder, HttpClient]
 })
 export class AnyBankPaymentComponent implements OnInit {
   form: FormGroup;
   http: HttpClient;
+  submitted: boolean;
 
   constructor(builder: FormBuilder, http: HttpClient) {
     this.http = http;
+    this.submitted = false;
     this.form = builder.group({
       'card-number': [
         null, [
@@ -49,7 +51,9 @@ export class AnyBankPaymentComponent implements OnInit {
       ],
       'payment-email': [
         null, [
-          Validators.email
+          Validators.required,
+          Validators.email,
+          Validators.maxLength(150)
         ]
       ]
     });
@@ -86,10 +90,15 @@ export class AnyBankPaymentComponent implements OnInit {
     formatNumeric(this.form, 'payment-amount', event, 5);
   }
 
+  formatEmail(event) {
+    formatText(this.form, 'payment-email', event, 150);
+  }
+
   submit() {
     console.log('start submitLogin');
-    this.http.post(environment.backend + 'card-payment', JSON.stringify(this.form.value))
-      .subscribe(ok => console.log('ok'), error => console.log('error'));
+    this.http.post(environment.backend + 'card-payment', JSON.stringify(this.form.value));
     console.log('submitted');
+    this.submitted = true;
+    setTimeout(() => this.submitted = false, 500);
   }
 }

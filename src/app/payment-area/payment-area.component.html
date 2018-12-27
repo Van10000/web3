@@ -5,11 +5,9 @@
     <span class="operation-require-payment clickable header" (click)="selectedPayment = false"
           [ngClass]="{selected: !selectedPayment}">Запросить платёж</span>
   </div>
-  <div class="payment-types">
-    <!-- TODO: Need svg here -->
+  <div *ngIf="selectedPayment" class="payment-types">
     <span class="payment-any-bank clickable" (click)="selectedAnyBankPayment = true"
           [ngClass]="{selectedBank: selectedAnyBankPayment}">С карты любого банка</span>
-    <!-- TODO: Need svg here -->
     <span class="payment-my-bank clickable" (click)="selectedAnyBankPayment = false"
           [ngClass]="{selectedBank: !selectedAnyBankPayment}">Из своего интернет-банка</span>
   </div>

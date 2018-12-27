@@ -25,7 +25,9 @@
            type="text" placeholder="До 150 символов" maxlength="150">
     <label for="any-bank-payment-email" class="any-bank-payment-email-text sub-header">Ваша эл.почта</label>
     <input class="any-bank-payment-email-input" formControlName="payment-email" type="email"
-           id="any-bank-payment-email" placeholder="Для квитанций об оплате">
+           id="any-bank-payment-email" (keypress)="formatEmail($event)" placeholder="Для квитанций об оплате">
     <button type="submit" class="any-bank-payment-submit" [disabled]="!form.valid">Заплатить</button>
+    <button type="reset" (click)="forWhatSelected=-1" class="any-bank-payment-reset">Очистить форму</button>
+    <div *ngIf="submitted" class="submitted-message">Отправлено</div>
   </div>
 </form>

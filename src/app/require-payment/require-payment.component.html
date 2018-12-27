@@ -1,3 +1,41 @@
-<div class="require-payment">
-  Require payment
-</div>
+<form [formGroup]="form" (ngSubmit)="submit()" class="require-payment-form">
+  <h3 class="sub-header">Сформируйте платёжку и загрузите её в свой банк для подписи</h3>
+  <div class="require-payment-main">
+    <label for="require-payment-from" class="require-payment-from-text additional">От кого</label>
+    <input class="require-payment-from-input" formControlName="payment-from" type="text"
+           (keypress)="formatFrom($event)" id="require-payment-from" placeholder="ИНН или название плательщика">
+    <label for="require-payment-BIK" class="require-payment-BIK-text additional">БИК</label>
+    <input class="require-payment-BIK-input" id="require-payment-BIK" formControlName="payment-BIK"
+           (keypress)="formatBIK($event)" type="text">
+    <label for="require-payment-account-number" class="require-payment-account-number-text additional">Номер счёта</label>
+    <input class="require-payment-account-number-input" formControlName="account-number" type="text"
+           (keypress)="formatAccountNumber($event)" id="require-payment-account-number">
+    <label for="require-payment-for-what" class="require-payment-for-what-text additional">За что</label>
+    <div class="require-payment-for-what-selection">
+      <span class="additional small-size">Назначение платежа</span>
+      <input class="require-payment-for-what-input" formControlName="payment-for-what" type="text"
+             id="require-payment-for-what" [ngModel]="forWhatSelected !== -1 ? forWhatOptions[forWhatSelected] : ''" disabled>
+      <span *ngFor="let forWhat of forWhatOptions; let i = index;"
+            class="require-payment-for-what-{{i}} clickable"
+            [ngClass]="{forWhatSelected: forWhatSelected===i}"
+            (click)="forWhatSelected=i">
+        {{forWhat}}
+      </span>
+    </div>
+    <label for="require-payment-amount" class="require-payment-amount-text additional">Сколько</label>
+    <input class="require-payment-amount-input" formControlName="payment-amount" type="number"
+           (keypress)="formatAmount($event)" id="require-payment-amount" placeholder="От 1000 до 75000">
+    <label for="require-payment-phone-number" class="require-payment-phone-number-text additional">Номер телефона</label>
+    <div class="require-payment-phone-number">
+      <input class="require-payment-phone-number-input" id="require-payment-phone-number" formControlName="phone-number"
+             type="text" (keypress)="formatPhone($event)" placeholder="+7 XXX XXX XX XX">
+      <span class="clickable small-size">Оставляя телефон, вы соглашаетесь на обработку персональных данных</span>
+    </div>
+    <label for="require-payment-email" class="require-payment-email-text additional">Эл. почта</label>
+    <input class="require-payment-email-input" formControlName="payment-email" type="email" placeholder="Для уведомлений об оплате"
+           (keypress)="formatEmail($event)" id="require-payment-email">
+  </div>
+  <button type="submit" class="require-payment-submit" [disabled]="!form.valid">Создать платёж</button>
+  <button type="reset" (click)="forWhatSelected=-1" class="require-payment-reset">Очистить форму</button>
+  <div *ngIf="submitted" class="submitted-message">Отправлено</div>
+</form>

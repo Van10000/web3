@@ -1,0 +1,120 @@
+@import '../app.component';
+
+.require-payment-form
+{
+  width: fit-content;
+}
+
+.require-payment-main
+{
+  display: grid;
+  grid-template:
+    "from from-input"
+    "BIK BIK-input"
+    "account-number account-number-input"
+    "for-what for-what-input"
+    "amount amount-input"
+    "phone phone-input"
+    "email email-input"
+            / auto 1fr;
+}
+
+.require-payment-from-input
+{
+  grid-area: from-input;
+}
+
+.require-payment-from
+{
+  grid-area: from;
+}
+
+.require-payment-BIK-text
+{
+  grid-area: BIK;
+}
+
+.require-payment-BIK-input
+{
+  grid-area: BIK-input;
+}
+
+.require-payment-account-number-text
+{
+  grid-area: account-number;
+}
+
+.require-payment-account-number-input
+{
+  grid-area: account-number-input;
+}
+
+.require-payment-for-what-text
+{
+  grid-area: for-what;
+}
+
+.require-payment-for-what-selection
+{
+  grid-area: for-what-input;
+}
+
+.require-payment-amount-text
+{
+  grid-area: amount;
+}
+
+.require-payment-amount-input
+{
+  grid-area: amount-input;
+}
+
+.require-payment-phone-number-text
+{
+  grid-area: phone;
+}
+
+.require-payment-phone-number-input
+{
+  grid-area: phone-input;
+}
+
+.require-payment-email-text
+{
+  grid-area: email;
+}
+
+.require-payment-email-input
+{
+  grid-area: email-input;
+}
+
+.require-payment-from-input,
+.require-payment-from-text,
+.require-payment-BIK-text,
+.require-payment-BIK-input,
+.require-payment-account-number-text,
+.require-payment-account-number-input,
+.require-payment-for-what-text,
+.require-payment-for-what-selection,
+.require-payment-amount-text,
+.require-payment-amount-input,
+.require-payment-phone-number-text,
+.require-payment-phone-number,
+.require-payment-email-text,
+.require-payment-email-input
+{
+  margin: 10px;
+}
+
+.require-payment-for-what-input,
+.require-payment-phone-number-input
+{
+  display: block;
+}
+
+.forWhatSelected
+{
+  cursor: default;
+  color: black;
+}

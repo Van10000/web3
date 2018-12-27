@@ -61,7 +61,7 @@
     "amount amount-input"
     "comment comment-input"
     "email email-input"
-    "button empty"
+    "button reset"
             / auto 1fr;
 }
 
@@ -109,4 +109,9 @@
 .any-bank-payment-submit
 {
   grid-area: button;
+}
+
+.any-bank-payment-reset
+{
+  grid-area: reset;
 }
